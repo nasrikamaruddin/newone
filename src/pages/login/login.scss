@@ -3,4 +3,23 @@ page-login {
         margin-top: 30vh;
         margin-bottom: 5vh;
     }
+
+    ion-content{
+        background-image: url("../assets/images/newBg5.jpg");
+        background-size: cover;
+
+    }
+    ion-input{
+        background-color: #f6f6f6;
+        border: none;
+        color: #535353;
+       // padding: 15px 32px;
+       // text-decoration: none;
+        font-size: 16px;
+        margin: 1px;
+       // border: 2px solid #f6f6f6;
+       // transition: all 0.5s ease-in-out;
+        height: 45px;
+        text-align: center;
+    }
 }

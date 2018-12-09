@@ -15,11 +15,10 @@
         <ion-item-sliding *ngFor="let data of complaintData | async">
         
           <ion-item>
-            <ion-label>
-                {{data.id}}
-                {{data.title}}
-              
-            </ion-label>
+            <h2>{{data.title}}</h2>
+            <p>date : {{data.date}} |  
+            {{data.time}} - 
+            status : {{data.status}}</p>
           </ion-item>
           <ion-item-options side="right">
             <button ion-button color="primary" (click)="updateComplaint(data.id,data.title,data.publicDamage,data.description,data.date,data.time)">

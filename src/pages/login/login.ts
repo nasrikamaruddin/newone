@@ -4,8 +4,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { HomePage } from '../home/home';
 import { User } from '../../models/user';
 import { SignupPage } from '../signup/signup';
-import { AngularFireList } from '@angular/fire/database';
+import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { ProfilePage } from '../profile/profile';
+import { ProfileDetailsPage } from '../profile-details/profile-details';
 
 
 @IonicPage()
@@ -18,7 +19,7 @@ export class LoginPage {
   user = {} as User;
   profileData: AngularFireList<any>
   uidref : string;
-  constructor(private alertCtrl:AlertController, private fire:AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afDatabase: AngularFireDatabase, private alertCtrl:AlertController, private fire:AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   alert(message: string){
@@ -36,17 +37,9 @@ export class LoginPage {
 
     const result = this.fire.auth.signInAndRetrieveDataWithEmailAndPassword(user.emailUser, user.password);
     
-      console.log('got some data', this.fire.auth.currentUser);
+      //console.log('got some data', this.fire.auth.currentUser);
       this.alert('Sucess! You are logged in');
-
-      if (result){
-         this.navCtrl.setRoot(HomePage);
-      }
-      else{
-        this.navCtrl.setRoot(LoginPage);
-      }
-      
-      //user is login
+      this.getUserType(result, this.navCtrl);
     }
    
     catch (e) {
@@ -59,6 +52,34 @@ export class LoginPage {
   }
   goRegister(){
     this.navCtrl.push(SignupPage);
+  }
+
+  public getUserType(result, nav){
+    this.fire.authState.subscribe( data =>{
+      const userRef : firebase.database.Reference = this.afDatabase.database.ref(`profile/${data.uid}/`);
+
+      userRef.on('value', userSnapshot => {
+        userSnapshot.forEach(function(child){
+          console.log(child.val());
+          console.log(child.val()['uType']);
+
+          if (result && child.val()['uType'] == 'student'){
+            nav.setRoot(HomePage);
+          }
+          else if (result && child.val()['uType'] == 'admin'){
+            nav.setRoot(ProfileDetailsPage);
+          }
+          //else if (result && child.val() != null){
+          //  nav.setRoot(ProfilePage);
+          //}
+          else {
+            nav.setRoot(LoginPage);
+          }
+        })
+      })
+      nav.setRoot(ProfilePage);
+    })
+    
   }
 
 
