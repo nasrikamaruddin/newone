@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Update Complaint Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        
+     <ion-item> 
+          <ion-label color="primary" stacked>Key : </ion-label>
+          <ion-input placeholder="key" [(ngModel)]="complaint.id"></ion-input>
+        </ion-item> 
+        <ion-item> 
+          <ion-label color="primary" stacked>Title : </ion-label>
+          <ion-input placeholder="title" [(ngModel)]="complaint.title"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Public Damage</ion-label>
+          <ion-select side="left" [(ngModel)]="complaint.publicDamage" submitText="Okay">
+            <ion-option value="A01 - Bed">Bed</ion-option>
+            <ion-option value="A02 - Wardrobe">Wardrobe</ion-option>
+            <ion-option value="A03 - Study Table">Study Table</ion-option>
+            <ion-option value="A04 - Curtains">Curtains</ion-option>
+            <ion-option value="A05 - Soft Board">Soft Board</ion-option>
+            <ion-option value="A06 - Door">Door</ion-option>
+            <ion-option value="A07 - Windows">Windows</ion-option>
+            <ion-option value="A08 - Toilet">Toilet</ion-option>
+            <ion-option value="A09 - Pipe">Pipe</ion-option>
+            <ion-option value="A010 - Sink">Sink</ion-option>
+            <ion-option value="A011 - Chair">Chair</ion-option>
+            <ion-option value="A012 - Others">Others</ion-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label color="primary" stacked>Description : </ion-label>
+          <ion-textarea style="height: 100px;" placeholder="Please be brief and precise"  [(ngModel)]="complaint.description"></ion-textarea>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label>Date</ion-label>
+            <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="complaint.date"></ion-datetime>
+          </ion-item>
+      
+      
+          <ion-item>
+            <ion-label>Time</ion-label>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="complaint.time"></ion-datetime>
+          </ion-item>
+
+          <ion-item> 
+              <ion-input value="new" [(ngModel)]="complaint.status" hidden></ion-input>
+          </ion-item>
+          
+      </ion-list>
+      <div style="text-align:center;">
+          <button ion-button secondary clear small  >Photo</button>
+
+          <button ion-button full (click)="updateComplaint(complaint.id,complaint.title,complaint.publicDamage,complaint.description,complaint.date,complaint.time)">Save</button>
+
+      </div>
+      </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p style="text-align: center">SRRS @ 2019</p>
+  </ion-toolbar>
+</ion-footer>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>

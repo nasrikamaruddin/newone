@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Complaint Photo Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <button ion-button (click)="takePhoto()" full color="primary">Take Photo</button>
+    <button ion-button (click)="getPhoto()" full color="secondary">Get Photo</button>
+
+    <p><img src = "{{myPhoto}}"  /></p>
+
+    <button ion-button secondary style="float: right;" *ngFor="let p of home" (click)="homePage(p)">{{p.title}}</button>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p style="text-align: center">SRRS @ 2019</p>
+  </ion-toolbar>
+</ion-footer>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>

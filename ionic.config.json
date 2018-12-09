@@ -1,0 +1,7 @@
+{
+  "name": "SRRSS",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

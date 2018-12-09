@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+       
+<ion-content padding>
+  <ion-list >
+    <ion-item> 
+      <ion-label color="primary" stacked>Username : </ion-label>
+      <!--<ion-input [(ngModel)]="profile.fName" value="{{ (profileData | async)?.fName }}"></ion-input>-->
+      <ion-input placeholder="Username" [(ngModel)]="profile.username"></ion-input>
+    </ion-item>
+
+
+    <ion-item> 
+      <ion-label color="primary" stacked>Full Name : </ion-label>
+      <!--<ion-input [(ngModel)]="profile.fName" value="{{ (profileData | async)?.fName }}"></ion-input>-->
+      <ion-input placeholder="Full Name" [(ngModel)]="profile.fName"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Matric No. : </ion-label>
+      <!--<ion-input value="{{ (profileData | async)?.matricNo }}"></ion-input> -->
+      <ion-input [(ngModel)]="profile.matricNo"></ion-input>
+    </ion-item>
+
+      
+    <ion-item> 
+      <ion-label color="primary" stacked>Telephone No.  : </ion-label>
+      <!--<ion-input value="{{ (profileData | async)?.nTel }}"></ion-input>-->
+      <ion-input [(ngModel)]="profile.nTel"></ion-input>
+    </ion-item>
+
+    
+    <ion-item> 
+      <ion-label color="primary" stacked>College Name : </ion-label>
+      <!--<ion-input value="{{ (profileData | async)?.cName }}"></ion-input>-->
+      <ion-input [(ngModel)]="profile.cName"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>College No. : </ion-label>
+      <!--<ion-input value="{{ (profileData | async)?.cNo }}"></ion-input>-->
+      <ion-input [(ngModel)]="profile.cNo"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Block Name : </ion-label>
+      <!--<ion-input value="{{ (profileData | async)?.blockName }}"></ion-input>-->
+      <ion-input [(ngModel)]="profile.blockName"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Room Number : </ion-label>
+      <!--<ion-input value="{{ (profileData | async)?.roomNo }}"></ion-input>-->
+      <ion-input [(ngModel)]="profile.roomNo"></ion-input>
+    </ion-item>
+
+    <button ion-button clear block (click)="UpdateProfile(profile.id,profile.username,profile.fName,profile.matricNo,profile.nTel,profile.cName,profile.cNo,profile.blockName,profile.roomNo)">Submit</button>
+  </ion-list>
+    
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p style="text-align: center">SRRS @ 2019</p>
+  </ion-toolbar>
+</ion-footer>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

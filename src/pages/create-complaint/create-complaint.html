@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create Complaint</ion-title>
+  </ion-navbar>
+</ion-header>
+      
+<ion-content padding>
+  <ion-list>
+    <ion-item> 
+      <ion-label color="primary" stacked>Name : </ion-label>
+      <ion-input placeholder="Name" #name></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Matric No. : </ion-label>
+      <ion-input placeholder="Matric Number"  #matricNo></ion-input>
+    </ion-item>
+
+      
+    <ion-item> 
+      <ion-label color="primary" stacked>Telephone No.  : </ion-label>
+      <ion-input placeholder="Number Telephone"  type="numberPhone" #password></ion-input>
+    </ion-item>
+
+    
+    <ion-item> 
+      <ion-label color="primary" stacked>College Name : </ion-label>
+      <ion-input placeholder="College Name"  #cName></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>College No. : </ion-label>
+      <ion-input placeholder="College Number"  #cNo></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Block Name : </ion-label>
+      <ion-input placeholder="Block Name"  #cbName></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Room Number : </ion-label>
+      <ion-input placeholder="Room Number"  #crName></ion-input>
+    </ion-item>
+  </ion-list>
+  <!--<button ion-button secondary style="float: right;" *ngFor="let p of next" (click)="nextPage(p)">{{p.title}}</button>-->
+  <button ion-button secondary style="float: right;" (click)="nextPage()">Next</button>
+    
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p style="text-align: center">SRRS @ 2019</p>
+  </ion-toolbar>
+</ion-footer>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

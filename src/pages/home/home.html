@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+   <ion-input [(ngModel)]="myInput"></ion-input>
+  </ion-item>
+  <button ion-button (click)="click()">Add</button>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button> hh {{ (profileData | async)?.cName }}
+
+  <ion-item *ngFor="let item of items">
+    {{item}}
+  </ion-item>
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p style="text-align: center">SRRS @ 2019</p>
+  </ion-toolbar>
+</ion-footer>
